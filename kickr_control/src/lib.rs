@@ -1,5 +1,6 @@
 // Indicate that the crate can access the commandline module
 pub mod commandline;
+pub mod bluetooth;
 
 
 
