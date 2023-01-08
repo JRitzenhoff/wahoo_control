@@ -134,6 +134,10 @@ let twin = Struct { name: "Molly", ..sara };
 // the "twin" will also have an 'age' and 'height_in_cm' copied from the sara instance 
 ```
 
+## Arc
+
+An `Arc<T>` provides thread-safe shared ownership of a value of type T, allocated in the heap.
+
 ## Lifetime parameters
 
 The `'_` "type" descriptor refers the lifetime of a variable.

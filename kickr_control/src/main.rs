@@ -1,5 +1,7 @@
+// need this import so that the InputArguments Trait is acknowledged
 use clap::{Parser as _};
 use kickr_control::commandline::{InputArguments, RunMode};
+
 
 fn main() {
    let cli = InputArguments::parse();
@@ -15,7 +17,7 @@ fn main() {
         println!("{} + 2 = {}", value, summed_value); 
     }
     RunMode::Scan => {
-        println!("Scanning has not been implemented yet");
+        kickr_control::bluetooth::scan();
     }
    }
 }
