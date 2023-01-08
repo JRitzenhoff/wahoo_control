@@ -1,2 +1,11 @@
 # Cargo Targets
 **/target/**
+
+# Document files
+**.pdf
+
+# Example files
+**/example/*
+
+# Generated files
+.DS_Store
