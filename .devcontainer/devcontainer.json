@@ -5,6 +5,10 @@
         "dockerfile": "../Dockerfile"
     },
 
+	// allow the container to have access to the host network
+	// 	- necessary for the bluetooth to work
+	"runArgs": ["--network=host"],
+
     // Configure tool-specific properties.
     "customizations": {
 		// Configure properties specific to VS Code.
