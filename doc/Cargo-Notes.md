@@ -8,3 +8,6 @@
 
 ## Only run library unit tests
 `cargo test --lib`
+
+## To remove cached libraries (that may be causing !#[features]) compilation
+`cargo clean`

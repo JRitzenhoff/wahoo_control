@@ -159,3 +159,16 @@ I believe referencing is basically turning an object into a pointer so that it c
 Dereferencing is converting that pointer to a struct again (so a dereference requires that the struct implements "Copy") to memcopy it's original binary to the new variable. 
 
 More explained here: https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html
+
+
+## Unwrap
+Handles a `Result<, Error>` and either gets the value or panics.
+
+This should only be used when a value is expected to work...
+i.e. `let addr: IPAddress = "127.0.0.1".parse().unwrap()`
+
+The address is known to work, so there should not be any risk of the program crashing.
+
+
+## ?
+Referred to as the `Try` operator. Does the same thing as `unwrap()`

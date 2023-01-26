@@ -1,34 +1,54 @@
 use clap::{Parser, Subcommand};
 
-#[derive(Parser)]
-pub struct InputArguments {
-    #[command(subcommand)]
-    pub run_mode: RunMode,
+/*
+Used for commandline input arguments
+*/
+#[derive(Parser, Debug)]
+pub struct SystemArguments {
+    #[clap(subcommand)]
+    pub run_mode: RunMode
 }
 
-#[derive(Subcommand)]
+#[derive(Subcommand, Debug)]
 pub enum RunMode {
     Greet,
     Add { value: u8 },
-    Scan
+    Connect
 }
 
+
 /*
-Doesn't work because there can't be an input argument for the Add option according to the ValueEnum trait
+Used for sub shell input arguments
 */
-// use clap::{Parser, ValueEnum};
 
-// #[derive(Parser)]
-// #[command(author, version, about, long_about=None)]
-// pub struct InputArguments {
-//     #[arg(value_enum)]
-//     pub run_mode: RunMode,
-// }
+// > resistance [up|down]
+// > sprint <time>
+// > display_stats [--loop]
+
+#[derive(Parser, Debug)]
+#[clap(about="Specifies how the resistance should be edited")]
+pub struct ResistanceArgument {
+    #[clap(subcommand)]
+    pub res_type: ResistanceType
+}
+
+#[derive(Subcommand, Debug)]
+pub enum ResistanceType {
+    Up,
+    Down
+}
 
 
-// #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
-// pub enum RunMode {
-//     Greet,
-//     Add,
-//     Scan
-// }
+#[derive(Parser, Debug)]
+#[clap(about="Specifies how long a sprint should occur")]
+pub struct SprintArgument {
+    /// amount of milliseconds to sprint for
+    // #[clap(short, long)]
+    pub duration: u16
+}
+
+#[derive(Parser, Debug)]
+#[clap(about="Specifies how the data should be displayed")]
+pub struct DisplayArgument {
+    pub continuous: Option<bool>
+}

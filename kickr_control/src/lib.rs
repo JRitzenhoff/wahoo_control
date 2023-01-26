@@ -1,8 +1,8 @@
 // Indicate that the crate can access the commandline module
-pub mod commandline;
 pub mod bluetooth;
-
-
+pub mod constants;
+pub mod controller;
+pub mod commandline;
 
 
 pub fn say_hello() {

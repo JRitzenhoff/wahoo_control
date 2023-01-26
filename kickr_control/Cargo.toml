@@ -6,7 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = { version = "4.0.32", features = ["derive"] }
+clap = { version = "^3", features = ["derive"] } # need the specific version for compatibility with shellfish
+shellfish = { version = "0.7.0", features = ["clap"] }
 futures = "0.3.25"
 tokio = "1.24.1"
 # btleplug = { version = "0.10", features = ["serde"] }
+
+# clap = { version = "^4.0.32", features = ["derive"] } 
